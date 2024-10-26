@@ -1,4 +1,4 @@
-// src/ReactBlog.js
+"use client";
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,14 +8,14 @@ const ReactBlog = () => {
   return (
     <>
       <Head>
-        <title>Getting Started with React </title>
+        <title>Getting Started with React</title>
         <meta 
           name="description" 
           content="Learn the basics of React, its setup, and the new features introduced in React 19." 
         />
       </Head>
 
-      <div className="w-[90%] lg:w-[70%] mx-auto mt-20 p-6 bg-white shadow-md rounded-lg">
+      <div className="max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto mt-20 p-6 bg-white shadow-md rounded-lg overflow-hidden">
         <h1 className="text-4xl font-bold mb-8 text-center text-purple-600">
           Getting Started with React
         </h1>
@@ -46,58 +46,45 @@ const ReactBlog = () => {
 
           <h3 className="text-2xl font-semibold mb-4 text-purple-700">Setting Up React</h3>
           <p className="mb-6">To create a new React project, you can use the following command:</p>
-          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700">
+          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700 overflow-x-auto">
             npx create-react-app my-react-app
           </pre>
 
           <p className="mb-6">After creating the project, navigate to the project folder and start the development server:</p>
-          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700">
+          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700 overflow-x-auto">
 {`cd my-react-app
 npm start`}
           </pre>
 
-          <h3 className="text-2xl font-semibold mb-4 text-purple-700">Folder Structure</h3>
-          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700">
-{`my-react-app/
-├── src/
-├── public/
-├── node_modules/
-└── package.json`}
+          <h3 className="text-2xl font-semibold mb-4 text-purple-700">Understanding JSX</h3>
+          <p className="mb-6">
+            JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML elements in 
+            your JavaScript code, making it easier to create React components. Here’s a simple example:
+          </p>
+          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700 overflow-x-auto">
+{`function MyComponent() {
+  return <h1>Hello, world!</h1>;
+}`}
           </pre>
 
+          <h3 className="text-2xl font-semibold mb-4 text-purple-700">Creating a Simple Component</h3>
           <p className="mb-6">
-            The <code className="bg-gray-200 px-1 rounded">src</code> folder contains all your application’s components, and 
-            the <code className="bg-gray-200 px-1 rounded">public</code> folder holds static assets. 
-            <code className="bg-gray-200 px-1 rounded">package.json</code> manages project dependencies.
+            Here’s how you can create a simple React component:
           </p>
-
-          <h3 className="text-2xl font-semibold mb-4 text-purple-700">Creating Your First Component</h3>
-          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700">
+          <pre className="bg-gray-100 p-4 rounded-md mb-6 border-l-4 border-purple-600 text-sm text-gray-700 overflow-x-auto">
 {`import React from 'react';
 
-const HelloWorld = () => {
-  return (
-    <h1>Hello, React!</h1>
-  );
-};
-
-export default HelloWorld;`}
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}`}
           </pre>
-
-          <h3 className="text-2xl font-semibold mb-4 text-purple-700">Deploying Your React App</h3>
-          <p className="mb-6">
-            Deploying a React app is simple with platforms like Netlify or Vercel. Push your project to GitHub, connect to a platform, and deploy with ease.
-          </p>
-
-          <h3 className="text-2xl font-semibold mb-4 text-purple-700">Whats New in React 19?</h3>
-          <p className="mb-6">React 19 introduces several improvements and new features...</p>
-
-          <div className="text-center mt-8">
-            <Link href="/blog">
-              <a className="text-blue-600 underline hover:text-purple-600">Back to Blog</a>
-            </Link>
-          </div>
         </article>
+
+        <div className="text-center mt-10">
+          <Link href="/blog" className="text-purple-500 hover:text-purple-300 underline transition duration-200">
+            Back to Blog
+          </Link>
+        </div>
       </div>
     </>
   );
